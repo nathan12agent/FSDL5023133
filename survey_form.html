@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .survey-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 550px;
+            transition: transform 0.3s ease;
+        }
+        .survey-container:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            text-align: center;
+            color: #2d2d2d;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #6e8efb;
+            box-shadow: 0 0 8px rgba(110, 142, 251, 0.3);
+        }
+        select {
+            height: 44px;
+            appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23444" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center;
+        }
+        .radio-group {
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 14px;
+            color: #444;
+            cursor: pointer;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+            accent-color: #6e8efb;
+            transform: scale(1.2);
+            transition: transform 0.2s ease;
+        }
+        .radio-group input[type="radio"]:hover {
+            transform: scale(1.4);
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, #6e8efb, #a777e3);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #5b7cf7, #9466d3);
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            top: 0;
+            left: 50%;
+            transition: width 0.4s ease;
+            transform: translateX(-50%);
+        }
+        button:hover::after {
+            width: 100%;
+        }
+        @media (max-width: 480px) {
+            .survey-container {
+                padding: 20px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="survey-container" role="form" aria-labelledby="survey-title">
+        <h2 id="survey-title">Survey Form</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" aria-required="true" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" aria-required="true" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="1" max="120" aria-required="true" required>
+            </div>
+            <div class="form-group">
+                <label for="preferences">Preferences</label>
+                <select id="preferences" name="preferences" aria-required="true" required>
+                    <option value="">Select an option</option>
+                    <option value="technology">Technology</option>
+                    <option value="food">Food</option>
+                    <option value="travel">Travel</option>
+                    <option value="music">Music</option>
+                </select>
+            </div>
+            <div class="radio-group" role="radiogroup" aria-label="Rating">
+                <label>Rating</label>
+                <label for="rating1"><input type="radio" id="rating1" name="rating" value="1" aria-required="true" required> 1</label>
+                <label for="rating2"><input type="radio" id="rating2" name="rating" value="2"> 2</label>
+                <label for="rating3"><input type="radio" id="rating3" name="rating" value="3"> 3</label>
+                <label for="rating4"><input type="radio" id="rating4" name="rating" value="4"> 4</label>
+                <label for="rating5"><input type="radio" id="rating5" name="rating" value="5"> 5</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
